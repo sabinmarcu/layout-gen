@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>Redirecting...</title>
+</head>
+
+<body>
+  <h1>Redirecting...</h1>
+  <a href="/layout-gen/simple">Click here if you are not redirected.</a>
+  <script>
+    const loc = window.location.pathname;
+    const simpleMatch = loc.match(/^\/layout-gen\/simple\/(.*)$/);
+    if (simpleMatch) {
+      window.location = `/layout-gen/simple?r=${simpleMatch[1]}`;
+    }
+  </script>
+</body>
+
+</html>
