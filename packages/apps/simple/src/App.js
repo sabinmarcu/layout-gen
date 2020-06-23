@@ -16,7 +16,7 @@ function App() {
   return (
     <CombineProviders
       contexts={[
-        Router,
+        [Router, { basename: process.env.NODE_ENV === 'production' ? '/layout-app' : '/' }],
         AppThemeProvider,
         Provider,
       ]}

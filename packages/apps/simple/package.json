@@ -2,6 +2,7 @@
   "name": "@la/app-simple",
   "version": "1.0.0",
   "private": false,
+  "homepage": "https://sabinmarcu.github.io/layout-gen/",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
