@@ -1,0 +1,11 @@
+{
+  "name": "@la/theme",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+    "@la/localstorage": "^1.0.0",
+    "@material-ui/core": "^4.10.2",
+    "react": "^16.13.1"
+  },
+  "main": "index.js"
+}

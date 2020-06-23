@@ -1,0 +1,52 @@
+{
+  "name": "@la/app-simple",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@la/layout": "^1.0.0",
+    "@la/portal": "^1.0.0",
+    "@la/theme": "^1.0.0",
+    "@la/context": "^1.0.0",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
+    "cra-template": "1.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "typeface-roboto": "^0.0.75"
+  },
+  "scripts": {
+    "start": "HOST=0.0.0.0 react-app-rewired start",
+    "start:dev": "nodemon -e json -x \"yarn cache clean && yarn install && yarn start\"",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
+    "babel-plugin-emotion": "^10.0.33",
+    "customize-cra": "^1.0.0",
+    "customize-cra-react-refresh": "^1.1.0",
+    "glob": "^7.1.6",
+    "lerna": "^3.22.1",
+    "nodemon": "^2.0.4",
+    "react-app-rewired": "^2.1.6"
+  }
+}

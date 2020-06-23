@@ -1,0 +1,9 @@
+{
+  "name": "@la/context",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+    "react": "^16.13.1"
+  },
+  "main": "index.js"
+}
