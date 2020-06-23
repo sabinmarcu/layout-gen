@@ -9,9 +9,12 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 
 const AppBar = withStyles((theme) => ({
-  colorPrimary: {
+  root: {
+    transition: theme.transitions.create(),
     background: theme.palette.type === 'dark'
-      ? theme.palette.background.default
+      ? theme.palette.augmentColor({
+        main: theme.palette.background.default,
+      }).light
       : theme.palette.primary.dark,
   },
 }))(AppBarBase);
