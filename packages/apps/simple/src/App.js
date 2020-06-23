@@ -24,7 +24,7 @@ function App() {
       <AppWrapper>
         <Navbar>
           <Typography variant="h4">
-            <Slot>There should be a title here</Slot>
+            <Slot />
           </Typography>
           <Settings />
         </Navbar>
