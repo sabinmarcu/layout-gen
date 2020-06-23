@@ -23,8 +23,8 @@
     "start": "lerna run start --scope @la/app-simple",
     "build": "lerna run build --scope @la/app-simple",
     "deploy": "run-s deploy:*",
-    "deploy:clean": "rm -rf docs",
+    "deploy:clean": "rm -rf docs/simple",
     "deploy:build": "yarn run build",
-    "deploy:move": "mv packages/apps/simple/build docs"
+    "deploy:move": "mv packages/apps/simple/build docs/simple"
   }
 }
