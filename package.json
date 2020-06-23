@@ -25,6 +25,9 @@
     "deploy": "run-s deploy:*",
     "deploy:clean": "rm -rf docs/simple",
     "deploy:build": "yarn run build",
-    "deploy:move": "mv packages/apps/simple/build docs/simple"
+    "deploy:move": "mv packages/apps/simple/build docs/simple",
+    "commit": "run-s commit:rebuild \"commit:git {@}\" --",
+    "commit:rebuild": "npm rebuild husky",
+    "commit:git": "git commit -am $@"
   }
 }
