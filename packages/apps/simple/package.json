@@ -11,6 +11,7 @@
     "@la/theme": "^1.0.0",
     "@la/context": "^1.0.0",
     "@la/redirect": "^1.0.0",
+    "@la/localstorage": "^1.0.0",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "cra-template": "1.0.3",

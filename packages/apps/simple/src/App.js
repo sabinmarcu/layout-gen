@@ -9,7 +9,6 @@ import { AppWrapper, Navbar } from '@la/layout';
 import { Typography } from '@material-ui/core';
 
 import { Settings } from './components/Settings';
-
 import { Provider, Slot } from './states/title';
 import routes from './config/routes';
 
