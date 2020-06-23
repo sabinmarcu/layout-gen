@@ -113,11 +113,11 @@ export const useLocalStorageList = (
     return () => window.removeEventListener('storage', handler);
   }, [update, pattern, rawPattern]);
   const addItem = useCallback(
-    (key) => {
-      if (patternIsRegExp) {
+    (key, force = false) => {
+      if (!force && patternIsRegExp) {
         return undefined;
       }
-      const k = makeKey(key, rawPattern);
+      const k = force ? makeKey(key) : makeKey(key, rawPattern);
       logState('⚙ LocalStorageList Add', k, {});
       localStorage.setItem(k, '{}');
       update();
@@ -126,8 +126,8 @@ export const useLocalStorageList = (
     [patternIsRegExp, update],
   );
   const removeItem = useCallback(
-    (key) => {
-      if (patternIsRegExp) {
+    (key, force = false) => {
+      if (!force && patternIsRegExp) {
         return undefined;
       }
       const k = makeKey(key);
