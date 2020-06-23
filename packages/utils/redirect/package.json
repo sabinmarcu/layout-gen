@@ -1,0 +1,11 @@
+{
+  "name": "@la/redirect",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "main": "index.js"
+}

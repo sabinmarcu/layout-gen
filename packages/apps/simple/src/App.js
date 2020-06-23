@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { RedirectComponent } from '@la/redirect';
 import { CombineProviders } from '@la/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AppThemeProvider } from '@la/theme';
@@ -21,6 +22,7 @@ function App() {
         Provider,
       ]}
     >
+      <RedirectComponent />
       <AppWrapper>
         <Navbar>
           <Typography variant="h4">
