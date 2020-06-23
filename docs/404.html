@@ -11,10 +11,14 @@
   <a href="/layout-gen/simple">Click here if you are not redirected.</a>
   <script>
     const loc = window.location.pathname;
-    const simpleMatch = loc.match(/^\/layout-gen\/simple\/(.*)$/);
-    if (simpleMatch) {
-      window.location = `/layout-gen/simple?r=${simpleMatch[1]}`;
+    const redirect = (path) => {
+      const match = loc.match(new RegExp(`^/layout-gen${path}(.*)$`));
+      console.log(match);
+      if (match) {
+        window.location = `/layout-gen${path}?r=${match[1]}`;
+      }
     }
+    redirect('/simple');
   </script>
 </body>
 
