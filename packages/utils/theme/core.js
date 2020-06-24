@@ -1,54 +1,22 @@
-import {
-  useMemo,
-  useCallback,
-  createContext,
-  useContext,
-} from 'react';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { useLocalStorage } from '@la/localstorage';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const useThemeProvider = ({
-  light = {},
-  dark = {},
-} = {}) => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const defaultTheme = useMemo(
-    () => (prefersDarkMode ? 'dark' : 'light'),
-    [prefersDarkMode, 'dark', 'light'],
-  );
+const states = ['dark', 'light'];
+const toggleTheme = (theme) => states[(states.indexOf(theme) + 1) % states.length];
 
-  const [themeName, setThemeName] = useLocalStorage('theme', defaultTheme);
-  const changeTheme = useCallback(
-    (t) => (['dark', 'light'].includes(t) && setThemeName(t)),
-    [setThemeName],
-  );
-  const toggleTheme = useCallback(
-    () => setThemeName((t) => (t === 'dark' ? 'light' : 'dark')),
-    [setThemeName],
-  );
+const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+  ? 'dark'
+  : 'light';
 
-  const theme = useMemo(
-    () => createMuiTheme(
-      themeName === 'dark' ? {
-        ...dark,
-        palette: { ...dark?.palette ?? {}, type: 'dark' },
-      } : {
-        ...light,
-        palette: { ...light?.palette ?? {}, type: 'light' },
-      },
-    ),
-    [themeName],
-  );
+export const store = createSlice({
+  name: 'theme',
+  initialState: defaultTheme,
+  reducers: {
+    toggle: (state) => toggleTheme(state),
+  },
+});
 
-  return {
-    theme,
-    themeName,
-    changeTheme,
-    toggleTheme,
-  };
-};
+export const localStorage = true;
+export const { toggle } = store.actions;
+export const selectTheme = (state) => state[store.name];
 
-export const ThemeManagerContext = createContext('light');
-
-export const useTheme = () => useContext(ThemeManagerContext);
+export default store;

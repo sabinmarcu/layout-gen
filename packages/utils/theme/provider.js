@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core';
-import { ThemeManagerContext, useThemeProvider } from './core';
+import { useSelector } from 'react-redux';
+import { selectTheme } from './core';
 
 export const AppThemeProvider = ({ children }) => {
-  const data = useThemeProvider();
+  const themeName = useSelector(selectTheme);
+  const theme = useMemo(
+    () => createMuiTheme({
+      palette: {
+        type: themeName,
+      },
+    }),
+    [themeName],
+  );
   return (
-    <ThemeManagerContext.Provider value={data}>
-      <ThemeProvider theme={data.theme}>
-        {children}
-      </ThemeProvider>
-    </ThemeManagerContext.Provider>
+    <ThemeProvider theme={theme}>
+      {children}
+    </ThemeProvider>
   );
 };
 

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { Button as ButtonBase } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { useTheme } from '@la/theme';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { Brightness4, Brightness7 } from '@material-ui/icons';
+
+const {
+  theme: {
+    selectTheme,
+    toggle,
+  },
+} = require('../../config/redux');
 
 const Button = withStyles((theme) => ({
   root: {
@@ -13,7 +19,12 @@ const Button = withStyles((theme) => ({
 }))(ButtonBase);
 
 export const Settings = () => {
-  const { themeName, toggleTheme } = useTheme();
+  const themeName = useSelector(selectTheme);
+  const dispatch = useDispatch();
+  const toggleTheme = useCallback(
+    () => dispatch(toggle()),
+    [dispatch, toggle],
+  );
   return (
     <div>
       <Button onClick={toggleTheme}>
